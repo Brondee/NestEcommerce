@@ -1,0 +1,18 @@
+.main {
+  @apply w-full flex items-center justify-center;
+
+  .inner_container {
+    @apply bg-[url(../../../assets/images/homeBg.png)] bg-center bg-cover bg-no-repeat rounded-2xl 
+    w-full h-[760px] flex flex-col justify-center;
+
+    .info_container {
+      @apply ml-44;
+      h1 {
+        @apply text-100 font-medium tracking-wider leading-[1.2em];
+      }
+      p {
+        @apply text-3xl tracking-widest w-4/12 pl-3 mb-20;
+      }
+    }
+  }
+}

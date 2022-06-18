@@ -1,0 +1,20 @@
+.product_container {
+  @apply w-28per mb-10 mt-5 border-6 border-black rounded-3xl py-10 px-5 flex flex-col items-center
+  justify-end cursor-pointer hover:scale-95 transition-transform;
+
+  h3 {
+    @apply text-4xl font-bold mt-10;
+  }
+
+  img {
+    @apply w-9/12;
+  }
+
+  .prices_container {
+    @apply w-full flex justify-between items-center;
+
+    p {
+      @apply text-[25px] bg-dullBlue rounded-xl px-12 py-4 font-bold mt-10 mb-5 mx-2;
+    }
+  }
+}

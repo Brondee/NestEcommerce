@@ -1,0 +1,154 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id Int @id @default(autoincrement())
+  available Boolean @default(true)
+  previewImage String @default("https://i.pinimg.com/originals/8e/21/73/8e2173a6a4fec900d8374752fc0c1b9c.jpg")
+  title String 
+  players String
+  time String
+  age String
+  pricePerDay Int
+  pricePerWeek Int
+  description String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  images ProductImage[]
+  categories CategoryOnPost[]
+  reviews Review[]
+  inCartItems CartItem[]
+  inOrderItems OrderItem[]
+  
+  @@map("products")
+}
+
+model ProductImage {
+  id Int @id @default(autoincrement())
+  url String
+
+  productId Int
+  product Product @relation(fields: [productId], references: [id])
+
+  @@map("product images")
+}
+
+model User {
+  id       Int @id @default(autoincrement())
+  name     String
+  email    String @unique
+  password String
+  rtHash String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  reviews  Review[]
+  cart Cart[]
+  orders Order[]
+  
+  @@map("users")
+}
+
+model Review {
+  id      Int @id @default(autoincrement())
+  text    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userId    Int
+  productId Int
+
+  user    User @relation(fields: [userId], references: [id])
+  product Product @relation(fields: [productId], references: [id])
+  
+  @@map("reviews")
+}
+
+model Cart {
+  id        Int @id @default(autoincrement())
+
+  userId    Int
+  user      User @relation(fields: [userId], references: [id])
+
+  cartItems CartItem[]
+
+  @@map("carts")
+}
+
+model CartItem {
+  id     Int @id @default(autoincrement())
+  duration String
+
+  cartId Int
+  cart   Cart @relation(fields: [cartId], references: [id])
+
+  productId Int 
+  product Product @relation(fields: [productId], references: [id])
+
+  @@map("cart items")
+}
+
+model Order {
+  id  Int   @id @default(autoincrement())
+
+  deliveryMethod  String  @default("Not set")
+  paymentMethod   String  @default("Not set")
+  paid Boolean  @default(false)
+  totalPrice Int
+  createdAt DateTime @default(now())
+
+  userId Int
+  user User @relation(fields: [userId], references: [id])
+
+  orderItems OrderItem[]
+
+  @@map("orders")
+}
+
+model OrderItem {
+  id Int @id @default(autoincrement())
+  duration String
+
+  orderId Int
+  order Order @relation(fields: [orderId], references: [id])
+
+  productId Int
+  product Product @relation(fields: [productId], references: [id])
+}
+
+model Category {
+  id Int @id @default(autoincrement())
+  text String @unique
+
+  products CategoryOnPost[]
+
+  @@map("categories")
+}
+
+model CategoryOnPost {
+  id Int @id @default(autoincrement())
+  assignedAt DateTime @default(now())
+
+  productId Int
+  product Product @relation(fields: [productId], references: [id])
+  categoryId Int
+  category Category @relation(fields: [categoryId], references: [id])
+}
+
+model Baner {
+  id Int @id @default(autoincrement())
+
+  url String
+  isShown Boolean @default(true)
+}

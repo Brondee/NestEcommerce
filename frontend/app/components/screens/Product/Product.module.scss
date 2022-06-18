@@ -1,0 +1,151 @@
+.first_section {
+  @apply w-full flex justify-center items-center mt-10;
+
+  .images_container {
+    @apply w-5/12 flex justify-center;
+
+    ul {
+      @apply w-2/12 mr-5 h-full;
+
+      li {
+        @apply rounded-2xl border-6 border-black flex justify-center items-center
+        px-2 py-9 mb-6 cursor-pointer hover:bg-dullBlue transition-colors w-11/12;
+
+        img {
+          @apply h-[80px] rounded-xl;
+        }
+      }
+    }
+
+    .main_img_container {
+      @apply w-6/12 px-10 py-36 rounded-3xl border-6 border-black flex justify-center items-center
+      h-[600px];
+    }
+  }
+
+  .text_contanier {
+    @apply w-5/12 block;
+
+    h1 {
+      @apply text-50 font-bold mt-8 mb-4;
+    }
+
+    .quick_info_container {
+      @apply flex w-6/12 justify-between items-center;
+
+      li {
+        @apply flex items-center;
+
+        img {
+          @apply w-7;
+        }
+
+        p {
+          @apply ml-2 text-lg font-bold;
+        }
+      }
+    }
+
+    .add_cart_btns_container {
+      @apply flex justify-evenly w-9/12 mt-20 h-[246px] bg-dullBlue border-6 border-black rounded-3xl;
+
+      .add_cart_btn {
+        @apply w-[250px] h-[250px] bg-white rounded-2xl border-4 border-black relative bottom-12
+        flex flex-col items-center justify-start;
+
+        h3 {
+          @apply text-black text-40 font-semibold mt-10 mb-0;
+        }
+
+        p {
+          @apply text-black text-xl font-semibold;
+        }
+
+        button {
+          @apply text-lg font-bold px-8 py-3 rounded-2xl border-4 border-black bg-dullPink
+          hover:bg-dullBlue transition-colors mt-7;
+        }
+      }
+    }
+
+    .categories_container {
+      @apply w-full flex items-center flex-wrap mt-14;
+
+      li {
+        @apply px-6 py-3 border-black border-4 rounded-2xl mx-3 cursor-pointer hover:bg-dullBlue 
+        transition-colors;
+
+        a {
+          @apply text-base font-bold;
+        }
+      }
+    }
+  }
+}
+.description_section {
+  @apply flex w-full mt-56 justify-center;
+
+  .description_container {
+    @apply w-6/12 border-6 border-black rounded-2xl p-14 h-min;
+
+    h1 {
+      @apply text-black text-60 font-bold mb-8;
+    }
+
+    p {
+      @apply text-lg font-openSans;
+    }
+  }
+
+  .other_games_section {
+    @apply flex flex-col items-center w-2/12 ml-24;
+
+    h3 {
+      @apply text-4xl font-bold mb-8;
+    }
+
+    .other_games_container {
+      @apply w-11/12 rounded-2xl bg-dullBlue border-6 border-black px-10 py-3;
+
+      .another_game {
+        @apply bg-white rounded-2xl border-6 border-black my-8 py-8 flex flex-col items-center 
+        cursor-pointer;
+
+        img {
+          @apply h-[150px];
+        }
+
+        p {
+          @apply text-xl font-bold mt-8;
+        }
+      }
+    }
+  }
+}
+.reviews_section {
+  @apply flex flex-col items-center mt-28;
+
+  h1 {
+    @apply text-60 font-bold;
+  }
+}
+
+.leave_review_section {
+  @apply flex flex-col items-center mt-28;
+
+  h2 {
+    @apply text-50 font-bold w-7/12 text-left;
+  }
+
+  form {
+    @apply w-7/12;
+    textarea {
+      @apply border-6 border-black w-full rounded-3xl text-xl font-semibold py-8 px-10 h-[320px] 
+      mt-7 resize-none;
+    }
+    button {
+      @apply text-xl font-bold border-4 border-black rounded-2xl px-10 py-4 bg-dullBlue 
+      mt-8 hover:bg-dullPink transition-colors;
+    }
+  }
+}

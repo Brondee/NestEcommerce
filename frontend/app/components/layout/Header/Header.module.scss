@@ -1,0 +1,23 @@
+.header_layout {
+  @apply w-full fixed border-4 border-black flex justify-center items-center bg-white z-50;
+
+  nav {
+    @apply w-9/12 flex justify-between py-8;
+
+    .logo_container {
+      @apply flex items-center;
+
+      a {
+        @apply text-4xl font-bold cursor-pointer pl-3 tracking-wider hover:text-darkPink transition-colors;
+      }
+    }
+
+    ul {
+      @apply flex items-center w-7/12 justify-between;
+
+      .header_link {
+        @apply text-2xl tracking-wider hover:text-darkPink transition-colors;
+      }
+    }
+  }
+}

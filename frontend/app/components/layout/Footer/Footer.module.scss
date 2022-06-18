@@ -1,0 +1,35 @@
+.footer_layout {
+  @apply w-full border-4 border-black flex justify-center items-center mt-32;
+
+  nav {
+    @apply w-9/12 flex justify-between py-8;
+
+    .logo_container {
+      @apply flex items-center;
+
+      a {
+        @apply text-4xl font-bold cursor-pointer pl-3 tracking-wider hover:text-darkPink transition-colors;
+      }
+    }
+
+    .social_container {
+      @apply flex items-center w-4/12 justify-between;
+
+      .icon {
+        @apply text-3xl;
+
+        img {
+          @apply w-8;
+        }
+      }
+    }
+
+    .links_container {
+      @apply flex items-center w-3/12 justify-between;
+
+      .footer_link {
+        @apply text-2xl tracking-wider hover:text-darkPink transition-colors;
+      }
+    }
+  }
+}
